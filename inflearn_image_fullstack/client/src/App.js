@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ImageList from "./components/ImageList";
 
 const App = () => {
+  
   return (
     <div style={{maxWidth : 600, margin : "auto"}}>
       <ToastContainer/>

@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import {ImageContext} from "../context/ImageContext"
 
 const ImageList = () => {
-    const [images, setImages] = useState([]);
-    useEffect(() => {
-        axios
-        .get("./images")
-        .then(result => setImages( result.data ))
-        .catch(err => console.error(err))    
-    },[]);
-    const imgList = images.map(image => <img 
-        key = {image.key}
+    const [images] = useContext(ImageContext);
+    const imgList = images.map((image) => <img 
+        key = {image.key}  // 고유의 키를 부여
         style={{width : "100%"}} 
         src={`http://localhost:5000/uploads/${image.key}`}/>)
     return (
